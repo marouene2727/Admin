@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Formateur } from 'src/app/core/models/formateur.model';
+import { FormateurService } from 'src/app/core/services/formateur.service'; // Adjust the import path as necessary
 
 @Component({
     selector: 'app-liste-formateurs',
@@ -7,26 +8,22 @@ import { Formateur } from 'src/app/core/models/formateur.model';
     styleUrls: ['./liste-formateurs.component.scss']
 })
 export class ListeFormateursComponent implements OnInit {
-    formateurs: Formateur[] = [
-        {
-            id: 1,
-            nom: "Jean Dupont",
-            biographieFormateur: "Expert en agriculture biologique",
-            nbrAnneesExperience: 15,
-            specialiteFormateur: "Agriculture Bio",
-            role: "Formateur Principal"
-        },
-        {
-            id: 2,
-            nom: "Marie Martin",
-            biographieFormateur: "Spécialiste en élevage",
-            nbrAnneesExperience: 10,
-            specialiteFormateur: "Élevage",
-            role: "Formateur Senior"
-        }
-    ];
+    formateurs: Formateur[] = [];
 
-    constructor() { }
+    constructor(private formateurService: FormateurService) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.getAllFormateurs();
+    }
+
+    getAllFormateurs(): void {
+        this.formateurService.getAllFormateurs().subscribe(
+            (data: Formateur[]) => {
+                this.formateurs = data;
+            },
+            (error) => {
+                console.error('Error fetching formateurs:', error);
+            }
+        );
+    }
 }

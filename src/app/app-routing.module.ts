@@ -15,7 +15,7 @@ const routes: Routes = [
 
   // tslint:disable-next-line: max-line-length
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
-  
+
   { path: 'activites-agricoles',
     children: [
       {

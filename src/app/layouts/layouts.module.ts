@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 import { RightsidebarComponent } from './rightsidebar/rightsidebar.component';
 import { HorizontalComponent } from './horizontal/horizontal.component';
 import { VerticalComponent } from './vertical/vertical.component';
@@ -17,6 +18,7 @@ import { HorizontaltopbarComponent } from './horizontaltopbar/horizontaltopbar.c
 import { LanguageService } from '../core/services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ListeActivitesComponent } from './activites-agricoles/liste-activites/liste-activites.component';
+import { ActiviteAgricoleService } from '../core/services/activites-agricoles.service'; // Import the service
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
@@ -27,8 +29,9 @@ import { ListeActivitesComponent } from './activites-agricoles/liste-activites/l
     RouterModule,
     BsDropdownModule.forRoot(),
     UIModule,
+    HttpClientModule,
     SimplebarAngularModule
   ],
-  providers: [LanguageService]
+  providers: [LanguageService, ActiviteAgricoleService]
 })
 export class LayoutsModule { }
