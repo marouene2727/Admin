@@ -21,6 +21,8 @@ export class ListeActivitesComponent implements OnInit {
     this.activiteAgricoleService.getActivitesAgricoles().subscribe(
       (data: ActiviteAgricole[]) => {
         this.activites = data; // Assign fetched data to activites array
+        console.log(data);
+        
       },
       (error) => {
         console.error('Error fetching activities:', error);

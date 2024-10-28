@@ -24,12 +24,17 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardsModule } from './dashboards/dashboards.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ListeActivitesComponent } from './activites-agricoles/liste-activites/liste-activites.component';
+import { FormateursComponent } from './formateurs/formateurs.component';
+import { LieuxCultesComponent } from './lieux-cultes/lieux-cultes.component';
+import { LieuxTouristiqueComponent } from './lieux-touristique/lieux-touristique.component';
+import { SouvenirsComponent } from './souvenirs/souvenirs.component';
 
 
 
 
 @NgModule({
-  declarations: [ ],
+  declarations: [ListeActivitesComponent, FormateursComponent, LieuxCultesComponent, LieuxTouristiqueComponent, SouvenirsComponent ],
   imports: [
     CommonModule,
     FormsModule,
